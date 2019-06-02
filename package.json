@@ -1,0 +1,11 @@
+{
+  "name": "dom-pub-sub-path-router",
+  "version": "0.0.1",
+  "description": "Browser DOM pub-sub manager for routing events by path between autonomous modules.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
