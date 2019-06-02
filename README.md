@@ -1,4 +1,5 @@
 # dom-pub-sub-path-router
+
 Browser DOM pub/sub manager for routing events by path between autonomous modules. Provided examples demonstrate use with [single-spa.js](https://github.com/CanopyTax/single-spa), or you can provide your own router function to `eventManager.subscribe(routerMethod, ...)`.
 
 ## routerEvents

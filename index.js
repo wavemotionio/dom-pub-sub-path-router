@@ -1,4 +1,3 @@
-// dom-pub-sub-path-router
 export const eventManager = {
 	events: {},
 
