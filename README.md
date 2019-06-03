@@ -113,7 +113,7 @@ import { eventManager } from 'dom-pub-sub-path-router';
 
 export class App2 {
    	open = () => {
-        eventManager.events.someModule.open.publish({ assessmentId: 5000 });
+		eventManager.events.someModule.open.publish({ someItemId: 5000 });
    	}
 }
 ```
