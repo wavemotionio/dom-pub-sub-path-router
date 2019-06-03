@@ -31,7 +31,7 @@ import { eventManager } from 'dom-pub-sub-path-router';
 ...
 
 // SUBSCRIBE TO EVENTS
-eventManager.subscribe(routingFunctionThatTakesPathToRouteTo, someModuleEvents);
+eventManager.subscribe(window.location, someModuleEvents);
 ```
 
 Auto-unsubsribe with single-spa.js API
