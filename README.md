@@ -19,7 +19,7 @@ export const events = {
 ```
 
 ## eventManager.subscribe(routerMethod, routerEvents)
-Basic: Import `routerEvents` from a module and execute eventManager.subscribe()
+Import `routerEvents` from a module and execute eventManager.subscribe()
 
 `src/root-application/root-application.js`
 ```
@@ -34,7 +34,27 @@ import { eventManager } from 'dom-pub-sub-path-router';
 eventManager.subscribe(window.location, someModuleEvents);
 ```
 
-Auto-unsubsribe with single-spa.js API
+## eventManager.events.<module>.<event>.publish
+Import events that are being exposed by other modules and publish to them.
+
+`src/anotherModule/anotherModule.component.ts`
+```
+import { Component } from '@angular/core';
+import { eventManager } from 'dom-pub-sub-path-router';
+
+@Component({
+	selector: 'app2',
+	template: `<button (click)="open($event)">open someModule from this module</button>`,
+})
+
+export class App2 {
+   	open = () => {
+		eventManager.events.someModule.open.publish({ someItemId: 5000 });
+   	}
+}
+```
+
+### Auto-unsubsribe with single-spa.js API
 ```
 import * as singleSpa from 'single-spa';
 import { events as someModuleEvents } from '../angularjs/events';
@@ -96,24 +116,4 @@ window.addEventListener('single-spa:app-change', evt => {
 		}
 	});
 });
-```
-
-## eventManager.events.<module>.<event>.publish
-Import events that are being exposed by other modules and publish to them.
-
-`src/anotherModule/anotherModule.component.ts`
-```
-import { Component } from '@angular/core';
-import { eventManager } from 'dom-pub-sub-path-router';
-
-@Component({
-	selector: 'app2',
-	template: `<button (click)="open($event)">open someModule from this module</button>`,
-})
-
-export class App2 {
-   	open = () => {
-		eventManager.events.someModule.open.publish({ someItemId: 5000 });
-   	}
-}
 ```
